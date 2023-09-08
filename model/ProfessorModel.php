@@ -10,6 +10,7 @@ class ProfessorModel
 
     private $database;
 
+/**get and set */
 public function __construct()
 {
     $this->database = new DataBase();
@@ -17,7 +18,6 @@ public function __construct()
 
 public function listarModel(): array 
 {
-    
     $dadosArray = $this->database->executeSelect("SELECT * FROM professores"); 
         
     return $dadosArray;
@@ -30,5 +30,24 @@ public function salvarModel(string $nome, int $idade)
     $this->database->insert($sql);
 
 }
+
+public function buscarPeloId(int $id) 
+{
+    $professorArray = $this->database->executeSelect("SELECT * FROM professores WHERE id = '$id'");
+    
+    return $professorArray[0];
+}
+public function atualizarModel(int $id, string $nome, int $idade)
+{
+    $sql = "UPDATE professores set nome='$nome', idade='$idade' WHERE id='$id'";
+    $this->database->insert($sql); 
+}
+
+public function excluirModel(int $id)
+{
+    $sql = "DELETE FROM professores WHERE id='$id'";
+    $this->database->insert($sql);
+}
+
 
 }
