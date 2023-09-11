@@ -62,7 +62,7 @@
     
             <div class="d-grid col-2 mx-auto">
     <a href="/<?php echo FOLDER; ?>/?controller=Estudante&acao=salvar" class="btn btn-dark text-white">Cadastrar Estudante</a>
-</div>
+    </div>
 
     <br>
         <table class="container table table-striped table-bordered">
